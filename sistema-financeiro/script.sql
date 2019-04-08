@@ -622,7 +622,7 @@ SELECT c.nome,
        cartao r,
        (  SELECT id_cartao, 
                  id_estabelecimento, 
-                 dense_rank() OVER (ORDER BY vlr_transacao) rank_transacao
+                 dense_rank() OVER (ORDER BY vlr_transacao desc) rank_transacao
             FROM transacao ) x
  WHERE x.id_cartao = r.id_cartao
    AND r.id_cliente = c.id_cliente
